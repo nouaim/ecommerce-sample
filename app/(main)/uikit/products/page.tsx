@@ -12,6 +12,7 @@ import { InputText } from "primereact/inputtext";
 import type { Demo } from "@/types";
 import { ProductServiceApi } from "@/demo/service/ProductServiceApi";
 import { useRouter } from 'next/navigation'
+import { Image } from "primereact/image";
 
 
 // In your component
@@ -188,11 +189,7 @@ const ListDemo = () => {
             </span>
           </div>
           <div className="flex flex-column align-items-center text-center mb-3">
-            <img
-              src={`${product.image}`}
-              alt={product.name}
-              className="w-9 shadow-2 my-3 mx-0"
-            />
+            <Image src={product.image} alt="Image" width="200" height="200" />
             <div className="text-2xl font-bold">{product.title}</div>
             {/* <div className="mb-3">{product.description}</div> */}
             <Rating value={product.rating.rate} readOnly cancel={false} />
