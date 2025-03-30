@@ -7,6 +7,7 @@ import { DataTable } from 'primereact/datatable';
 import { Menu } from 'primereact/menu';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ProductService } from '../../demo/service/ProductService';
+import { ProductServiceApi } from '../../demo/service/ProductServiceApi';
 import { LayoutContext } from '../../layout/context/layoutcontext';
 import Link from 'next/link';
 import { Demo } from '@/types';
