@@ -174,8 +174,10 @@ const ListDemo = () => {
   };
 
   const dataviewGridItem = (product: any) => {
+    const router = useRouter();
+
     return (
-      <div className="col-12 lg:col-4">
+      <div className="col-12 lg:col-4"  onClick={() => router.push(`/uikit/products/${product.id}`)}>
         <div className="card m-3 border-1 surface-border">
           <div className="flex flex-wrap gap-2 align-items-center justify-content-between mb-2">
             <div className="flex align-items-center">
