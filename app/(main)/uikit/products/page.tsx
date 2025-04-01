@@ -67,11 +67,6 @@ const ListDemo = () => {
     setGlobalFilterValue("");
   }, []);
 
-  // useEffect(() => {
-  //     ProductService.getProducts().then((data) => setDataViewValue(data));
-  //     setGlobalFilterValue('');
-  // }, []);
-
   const onFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setGlobalFilterValue(value);
