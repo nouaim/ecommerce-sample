@@ -129,7 +129,7 @@ const ListDemo = () => {
   const dataviewListItem = (product: any) => {
     const router = useRouter();
     return (
-      <div className="col-12" onClick={() => router.push(`/product/${product.id}`)}>
+      <div className="col-12" onClick={() => router.push(`/uikit/products/${product.id}`)}>
         <div className="flex flex-column md:flex-row align-items-center p-3 w-full">
           <img
             src={product.image}
