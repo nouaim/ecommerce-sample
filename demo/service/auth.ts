@@ -34,41 +34,21 @@ let currentUser: User | null = null;
 // Login function
 export const login = (
   email: string,
-  password: string
+  password: string,
 ): Promise<User | null> => {
-  const toast = React.useRef<Toast>(null);
   return new Promise((resolve) => {
-    // For demo purposes, we'll just check if the email exists in our mock data
-    // In a real app, you would check against a backend with proper password hashing
+
     const user = USERS.find((u) => u.email === email);
+    console.warn(user);
 
     setTimeout(() => {
       if (user) {
         // In a real app, you'd validate the password here
         localStorage.setItem("user", JSON.stringify(user));
+        console.warn('local storage', localStorage.getItem("user"));
         currentUser = user;
-        // toast({
-        //   title: "Login successful",
-        //   description: `Welcome back, ${user.name}!`,
-        // });
-        toast.current?.show({
-          severity: "success",
-          summary: "Login successful",
-          detail: `Welcome back, ${user.name}!`,
-          life: 3000,
-        });
         resolve(user);
       } else {
-        // toast({
-        //   title: "Login failed",
-        //   description: "Invalid email or password",
-        //   variant: "destructive",
-        // });
-        toast.current?.show({
-          summary: "Login failed",
-          detail: "Invalid email or password",
-          life: 3000,
-        });
         resolve(null);
       }
     }, 500); // Simulate network delay
@@ -84,7 +64,7 @@ export const logout = (): void => {
   toast.current?.show({
     severity: "success",
     summary: "Logged out",
-    detail: 'You have been logged out successfully',
+    detail: "You have been logged out successfully",
     life: 3000,
   });
 };
