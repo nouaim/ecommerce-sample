@@ -86,7 +86,7 @@ const LoginPage = () => {
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email address"
+                placeholder="admin@example.com or user@example.com"
                 className="w-full md:w-30rem mb-5"
                 style={{ padding: "1rem" }}
               />
@@ -101,7 +101,7 @@ const LoginPage = () => {
                 inputId="password1"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
+                placeholder="Any password will work for demo"
                 toggleMask
                 className="w-full mb-5"
                 inputClassName="w-full p-3 md:w-30rem"

@@ -1,4 +1,3 @@
-import { Toast } from "primereact/toast";
 import React, { useEffect, useRef, useState } from "react";
 
 // User roles
@@ -57,16 +56,8 @@ export const login = (
 
 // Logout function
 export const logout = (): void => {
-  const toast = React.useRef<Toast>(null);
-
   localStorage.removeItem("user");
   currentUser = null;
-  toast.current?.show({
-    severity: "success",
-    summary: "Logged out",
-    detail: "You have been logged out successfully",
-    life: 3000,
-  });
 };
 
 // Get current user
