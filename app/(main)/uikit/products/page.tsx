@@ -101,27 +101,30 @@ const ListDemo = () => {
 
   const CategoryFilter = () => (
     <div className="mb-4">
-      <h1 className="text-3xl font-bold mb-4">
-        {selectedCategory
-          ? `${
-              selectedCategory.charAt(0).toUpperCase() +
-              selectedCategory.slice(1)
-            }`
-          : "All Products"}
-      </h1>
+      <div className="flex justify-content-between align-items-center">
+        <h1 className="text-3xl font-bold mb-4">
+          {selectedCategory
+            ? `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}`
+            : "All Products"}
+        </h1>
+        <Button 
+          icon="pi pi-plus" 
+          label="Add Product" 
+          className="p-button-success"
+          onClick={() => router.push('/products/new')} // Adjust route as needed
+        />
+      </div>
 
       <div className="flex overflow-x-auto gap-2 pb-2">
         <Button
           onClick={() => setSelectedCategory(null)}
           label="All"
-          className={`whitespace-nowrap ${
-            !selectedCategory ? "" : "p-button-outlined"
-          }`}
+          className={`whitespace-nowrap ${!selectedCategory ? "" : "p-button-outlined"}`}
         />
         {loading
-          ? Array(4)
-              .fill(0)
-              .map((_, i) => <Skeleton key={i} width="6rem" height="2.5rem" />)
+          ? Array(4).fill(0).map((_, i) => (
+              <Skeleton key={i} width="6rem" height="2.5rem" />
+            ))
           : categories?.map((category: string) => (
               <Button
                 key={category}
@@ -135,6 +138,7 @@ const ListDemo = () => {
       </div>
     </div>
   );
+
 
   const dataViewHeader = (
     <div className="flex flex-column md:flex-row md:justify-content-between gap-2">
