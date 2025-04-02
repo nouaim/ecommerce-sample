@@ -1,4 +1,4 @@
-import { Product, getProducts, updateProduct } from "./api";
+import { Product, getProducts, updateProduct, deleteProduct } from "./api";
 import { Toast } from "primereact/toast";
 import { useRef } from "react";
 import { canPerformAction } from "./auth";
@@ -81,22 +81,11 @@ export const update = async (id: number, updates: Partial<Product>): Promise<Pro
 };
 
 // Delete product
-export const deleteProduct = async (id: number): Promise<boolean> => {
+export const deleteP = async (id: number): Promise<boolean> => {
   if (!canPerformAction("delete")) {
     showToast('error', 'Permission Denied', "You don't have permission to delete products");
     return false;
   }
-  
-  const initialLength = productsCache.length;
-  productsCache = productsCache.filter(p => p.id !== id);
-  
-  const deleted = initialLength > productsCache.length;
-  
-  if (deleted) {
-    showToast('success', 'Product Deleted', "Product has been deleted successfully");
-  } else {
-    showToast('error', 'Deletion Failed', "Product not found");
-  }
-  
-  return deleted;
+
+  return deleteProduct(id)
 };
