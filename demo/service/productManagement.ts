@@ -83,9 +83,11 @@ export const update = async (id: number, updates: Partial<Product>): Promise<Pro
 // Delete product
 export const deleteP = async (id: number): Promise<boolean> => {
   if (!canPerformAction("delete")) {
+    console.warn('wa are here');
     showToast('error', 'Permission Denied', "You don't have permission to delete products");
     return false;
   }
 
-  return deleteProduct(id)
+  await deleteProduct(id);
+  return true;
 };

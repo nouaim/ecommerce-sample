@@ -65,12 +65,17 @@ export async function updateProduct(
 }
 
 export async function deleteProduct(id: number): Promise<void> {
+  console.warn(
+    "deleteProduct",
+    `https://fakestoreapi.com/products/${id}`
+  )
   const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
     method: "DELETE",
   });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
+  return response.json();
 }
 
 export async function createProduct(product: Omit<Product, "id">): Promise<Product> {
