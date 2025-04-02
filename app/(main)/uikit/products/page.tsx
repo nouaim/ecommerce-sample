@@ -111,7 +111,7 @@ const ListDemo = () => {
           icon="pi pi-plus" 
           label="Add Product" 
           className="p-button-success"
-          onClick={() => router.push('/products/new')} // Adjust route as needed
+          onClick={() => router.push('/uikit/products/new')} // Adjust route as needed
         />
       </div>
 
