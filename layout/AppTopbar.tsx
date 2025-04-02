@@ -12,6 +12,7 @@ import { AppTopbarRef } from "@/types";
 import { LayoutContext } from "./context/layoutcontext";
 import { getCurrentUser, logout } from "@/demo/service/auth";
 import { useRouter } from "next/navigation";
+import { Button } from "primereact/button";
 
 const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
   const { layoutConfig, layoutState, onMenuToggle, showProfileSidebar } =
@@ -28,8 +29,14 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
   const router = useRouter();
   const user = getCurrentUser();
 
+  const isAuth = user !== null;
+
   const handleLogout = () => {
     logout();
+    router.push("/auth/login");
+  };
+
+  const handleLogin = () => {
     router.push("/auth/login");
   };
 
@@ -71,19 +78,33 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
           "layout-topbar-menu-mobile-active": layoutState.profileSidebarVisible,
         })}
       >
-        <div className="text-sm md:inline-flex align-items-center hidden">
-          <span className="text-500 mr-1">Hello,</span>
-          <span className="font-medium text-900">{user?.name}</span>
-        </div>
-        <button
-          type="button"
-          className="p-link layout-topbar-button"
-          onClick={handleLogout}
-        >
-          <i className="pi pi-sign-out"></i>
-          <span>Logout</span>
-        </button>
-
+        {isAuth ? (
+          <div className="flex align-items-center gap-3">
+            <div className="hidden md:flex align-items-center">
+              <span className="text-500 mr-1">Hello,</span>
+              <span className="font-medium text-900">{user?.name}</span>
+            </div>
+            <Button
+              type="button"
+              icon="pi pi-sign-out"
+              label="Logout"
+              onClick={handleLogout}
+              severity="secondary"
+              text
+            >
+            </Button>
+          </div>
+        ) : (
+          <Button
+            type="button"
+            icon="pi pi-sign-in"
+            label="Login"
+            onClick={handleLogin}
+            severity="secondary"
+            text
+          >
+          </Button>
+        )}
         <button type="button" className="p-link layout-topbar-button">
           <i className="pi pi-user"></i>
           <span>Profile</span>

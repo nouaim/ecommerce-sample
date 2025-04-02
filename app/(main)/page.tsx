@@ -46,22 +46,21 @@ const Dashboard = () => {
   const menu2 = useRef<Menu>(null);
   const [lineOptions, setLineOptions] = useState<ChartOptions>({});
   const { layoutConfig } = useContext(LayoutContext);
-  const router = useRouter();
+  // const router = useRouter();
   const toast = useRef<Toast>(null);
 
-  useEffect(() => {
-    if (!isAuthenticated()) {
-      toast.current?.show({
-        severity: "error",
-        summary: "Access Denied",
-        detail: "Please login to access this page",
-        life: 3000,
-      });
-      router.push("/auth/login");
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   if (!isAuthenticated()) {
+  //     toast.current?.show({
+  //       severity: "error",
+  //       summary: "Access Denied",
+  //       detail: "Please login to access this page",
+  //       life: 3000,
+  //     });
+  //     router.push("/auth/login");
+  //   }
+  // }, [router]);
 
-  const user = getCurrentUser();
 
   const applyLightTheme = () => {
     const lineOptions: ChartOptions = {
