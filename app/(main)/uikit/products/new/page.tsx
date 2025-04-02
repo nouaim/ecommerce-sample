@@ -7,7 +7,7 @@ import { InputNumber } from "primereact/inputnumber";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
-import { createProduct } from "@/demo/service/productManagement";
+import { createProduct } from "@/demo/service/api";
 import { Product } from "@/demo/service/api";
 
 const ProductCreatePage = () => {
@@ -15,12 +15,16 @@ const ProductCreatePage = () => {
   const toast = useRef<Toast>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [formData, setFormData] = useState<Omit<Product, 'id' | 'rating'>>({
+  const [formData, setFormData] = useState<Omit<Product, 'id'>>({
     title: '',
     price: 0,
     description: '',
     category: '',
-    image: ''
+    image: '',
+    rating: {
+      rate: 0,
+      count: 0
+    }
   });
 
   const handleChange = (field: keyof typeof formData, value: any) => {
@@ -39,7 +43,6 @@ const ProductCreatePage = () => {
         detail: 'Product created successfully',
         life: 3000
       });
-      
       // Redirect to the new product's detail page
       router.push(`/products/${newProduct.id}`);
     } catch (error) {

@@ -1,4 +1,4 @@
-import { Product, getProducts, updateProduct, deleteProduct } from "./api";
+import { Product, getProducts, updateProduct, deleteProduct, createProduct } from "./api";
 import { Toast } from "primereact/toast";
 import { useRef } from "react";
 import { canPerformAction } from "./auth";
@@ -46,28 +46,6 @@ export const getProductById = async (id: number): Promise<Product | undefined> =
     await initializeProducts();
   }
   return productsCache.find(product => product.id === id);
-};
-
-// Create new product
-export const createProduct = async (product: Omit<Product, "id">): Promise<Product | null> => {
-  if (!canPerformAction("create")) {
-    showToast('error', 'Permission Denied', "You don't have permission to create products");
-    return null;
-  }
-  
-  // Generate a new ID (in a real app this would be handled by the backend)
-  const newId = Math.max(0, ...productsCache.map(p => p.id)) + 1;
-  
-  const newProduct: Product = {
-    ...product,
-    id: newId,
-  };
-  
-  productsCache.push(newProduct);
-  
-  showToast('success', 'Product Created', `${newProduct.title} has been created successfully`);
-  
-  return newProduct;
 };
 
 // Update existing product
