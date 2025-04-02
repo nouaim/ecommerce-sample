@@ -10,9 +10,8 @@ import React, {
 } from "react";
 import { AppTopbarRef } from "@/types";
 import { LayoutContext } from "./context/layoutcontext";
-import { logout } from "@/demo/service/auth";
+import { getCurrentUser, logout } from "@/demo/service/auth";
 import { useRouter } from "next/navigation";
-
 
 const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
   const { layoutConfig, layoutState, onMenuToggle, showProfileSidebar } =
@@ -27,10 +26,9 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
     topbarmenubutton: topbarmenubuttonRef.current,
   }));
   const router = useRouter();
-
+  const user = getCurrentUser();
 
   const handleLogout = () => {
-
     logout();
     router.push("/auth/login");
   };
@@ -73,6 +71,10 @@ const AppTopbar = forwardRef<AppTopbarRef>((props, ref) => {
           "layout-topbar-menu-mobile-active": layoutState.profileSidebarVisible,
         })}
       >
+        <div className="text-sm md:inline-flex align-items-center hidden">
+          <span className="text-500 mr-1">Hello,</span>
+          <span className="font-medium text-900">{user?.name}</span>
+        </div>
         <button
           type="button"
           className="p-link layout-topbar-button"
