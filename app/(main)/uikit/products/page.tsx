@@ -12,6 +12,8 @@ import { getProducts, getCategories, Product } from "@/demo/service/api";
 import { useRouter } from "next/navigation";
 import { Image } from "primereact/image";
 import { Skeleton } from "primereact/skeleton";
+import { canPerformAction } from "@/demo/service/auth";
+
 
 const ListDemo = () => {
   const router = useRouter();
@@ -107,12 +109,14 @@ const ListDemo = () => {
             ? `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}`
             : "All Products"}
         </h1>
+        {canPerformAction("create") && (
         <Button 
           icon="pi pi-plus" 
           label="Add Product" 
           className="p-button-success"
           onClick={() => router.push('/uikit/products/new')} // Adjust route as needed
         />
+      )}
       </div>
 
       <div className="flex overflow-x-auto gap-2 pb-2">
