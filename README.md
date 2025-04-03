@@ -55,6 +55,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ![List](./screenshots/list-view.png)
 
+
+### Filter By Category
+
+Here, the results are filtered to show only items within the 'Men's Clothing' category.
+
+The dropdown menu sorts items by price, either ascending or descending.
+
+![Filter by Category](./screenshots/category-filter.png)
+
+### Search Filter
+
+![Search](./screenshots/search-filter.png)
+
+
 ### add new product
 
 - we must add a valid link in the image url field in order to work
