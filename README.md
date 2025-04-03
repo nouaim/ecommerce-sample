@@ -74,3 +74,14 @@ click on any of the products in the products page. You will be able to edit the 
 
 
 ![Delete a product](./screenshots/delete-product.png)
+
+
+
+
+
+
+## To dos
+
+
+- Routes should be protected with guards (this feature is not yet implemented). 
+For example, a guest cant see the "Create" button on the products page. However, this route is still accessible: http://localhost:3000/uikit/products/new
