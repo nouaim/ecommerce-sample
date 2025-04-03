@@ -15,6 +15,7 @@ import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import { Toast } from "primereact/toast";
 import Swal from "sweetalert2";
+import { canPerformAction } from "@/demo/service/auth";
 
 const queryClient = new QueryClient();
 
@@ -237,18 +238,22 @@ const ProductDetailContent = () => {
           label="Back"
         />
         <div className="flex gap-2">
-          <Button
-            icon="pi pi-pencil"
-            label="Edit"
-            className="p-button-primary"
-            onClick={handleEdit}
-          />
-          <Button
-            icon="pi pi-trash"
-            label="Delete"
-            className="p-button-danger"
-            onClick={handleDelete}
-          />
+          {canPerformAction("update") && (
+            <Button
+              icon="pi pi-pencil"
+              label="Edit"
+              className="p-button-primary"
+              onClick={handleEdit}
+            />
+          )}
+          {canPerformAction("delete") && (
+            <Button
+              icon="pi pi-trash"
+              label="Delete"
+              className="p-button-danger"
+              onClick={handleDelete}
+            />
+          )}
         </div>
       </div>
 
