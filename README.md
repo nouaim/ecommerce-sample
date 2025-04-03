@@ -78,6 +78,31 @@ click on any of the products in the products page. You will be able to edit the 
 
 
 
+## Permissions (Access rights)
+
+#### Definition
+
+the approach is based on Role-Based Access Control (RBAC)
+
+Role Definition:
+
+```ts
+export type UserRole = "admin" | "user" | "guest";
+```
+
+#### Permission Logic:
+
+- Admins have full permissions for all actions
+- Regular users can only update products (not create or delete)
+- Guests have no management permissions
+
+
+#### Implementation Details:
+
+- User data is stored in localStorage after login 
+- Before any sensitive operation, the code checks permissions via canPerformAction()
+- UI elements (like edit/delete buttons) are conditionally rendered based on permissions
+- Unauthorized attempts trigger toast notifications informing the user of permission denial
 
 
 ## To dos
