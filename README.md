@@ -39,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 > "Note: Posted data will not really insert into the database and just return a fake id." source: https://github.com/keikaavousi/fake-store-api?tab=readme-ov-file#add-new-product
 
-- Sakaicnow (at this current Date) for primeng and in primevue has a better technology than the one used in primereact. (design token: https://primeng.org/theming). It should be available in the next version of primereact (11).
+- As of now, Sakai's PrimeNG and PrimeVue implementations employ more advanced technology than its PrimeReact counterpart. (design token: https://primeng.org/theming). It should be available in the next version of primereact (11).
 
 
 
