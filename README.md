@@ -42,8 +42,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## features
 
-### add new product
+### list of the products
 
+#### Grid view
+
+![List](./screenshots/grid-view.png)
+
+#### List View
+
+![List](./screenshots/list-view.png)
+
+### add new product
 
 - we must add a valid link in the image url field in order to work
 
