@@ -32,7 +32,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # notes
 
-- when the creattion of the product happends it will redirect to the page with the id of the new product. It will be 404 because the FakeStoreApi doesn't provide the ability to store new data as stated in its docs 
+- You can either log in or visit the site as a guest.
+- if you do not see certain buttons, it indicates that you are logged in with a user account that lacks the necessary permissions.
+
+- when the creattion of the product happens it will redirect to the page with the "id" of the new product. It will be 404 because the Fake Store Api doesn't provide the ability to store new data as stated in its docs 
 
 > "Note: Posted data will not really insert into the database and just return a fake id." source: https://github.com/keikaavousi/fake-store-api?tab=readme-ov-file#add-new-product
 
