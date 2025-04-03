@@ -48,3 +48,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - we must add a valid link in the image url field in order to work
 
 ![Add New Product](./screenshots/add-new-product.png)
+
+
+### edit product
+
+click on any of the products in the products page. You will be able to edit the page if you have the permission to do so.
+
+
+![Edit Product](./screenshots/edit-product.png)
+
+![Fields](./screenshots/edit-product-fields.png)
+
+
+### delete product
+
+
+
+![Delete a product](./screenshots/delete-product.png)
