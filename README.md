@@ -127,3 +127,5 @@ export type UserRole = "admin" | "user" | "guest";
 
 - Routes should be protected with guards (this feature is not yet implemented). 
 For example, a guest cant see the "Create" button on the products page. However, this route is still accessible: http://localhost:3000/uikit/products/new
+
+- Add validations in the create, edit forms (For example, required fields should turn red if we click the submit button and they are empty.)
