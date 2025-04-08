@@ -133,7 +133,8 @@ For example, a guest cant see the "Create" button on the products page. However,
 
 # Credit 
 
-- Lovable has given me a template in react and vite (not next js) and tailwind which I have adapted to the sakai template that is based on primeract + primeflex.
+- Lovable has given me a template in react and vite (not next js) and tailwind which I have adapted to the sakai template that is based on primeract + primeflex. 
+- link of the lovable project (https://github.com/nouaim/snap-store-garden)
 
 # Notes
 
