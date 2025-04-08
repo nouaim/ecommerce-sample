@@ -129,3 +129,12 @@ export type UserRole = "admin" | "user" | "guest";
 For example, a guest cant see the "Create" button on the products page. However, this route is still accessible: http://localhost:3000/uikit/products/new
 
 - Add validations in the create, edit forms (For example, required fields should turn red if we click the submit button and they are empty.)
+
+
+# Credit 
+
+- Lovable has given me a template in react and vite (not next js) and tailwind which I have adapted to the sakai template that is based on primeract + primeflex.
+
+# Notes
+
+- Primeflex is an outdated library that its company doesnt wish to continue to support. Hence I dont suggest you use it for long term prjects. (Expect PrimeReact next version to use Tailwind instead)
