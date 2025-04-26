@@ -163,7 +163,7 @@ const ListDemo = () => {
       </span>
       <DataViewLayoutOptions
         layout={layout}
-        onChange={(e) => setLayout(e.value)}
+        onChange={(e: any) => setLayout(e.value)}
       />
     </div>
   );
